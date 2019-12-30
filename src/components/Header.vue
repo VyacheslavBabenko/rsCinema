@@ -278,7 +278,7 @@ header {
         font-size: 16px;
         line-height: 24px;
         color: #979797;
-        background: url('../assets/Chevron-bottom.svg') 95%/4% no-repeat #FFFFFF;
+        background: url('../assets/Chevron-bottom.svg') 89% no-repeat #FFFFFF;
         padding-left: 20px;
     }
 }
