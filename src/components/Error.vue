@@ -20,6 +20,12 @@ export default {
     align-items: center;
     margin-top: 10vh;
     flex-direction: column;
+    height: 100%;
+
+    @media (max-width: 576px) {
+        height: 100vh;
+        margin-top: 0;
+    }
 }
 
 .title-error {

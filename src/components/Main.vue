@@ -7,7 +7,12 @@
                 class="movie-block"
             >
                 <div class="poster">
-                    <img :src="movie.url_poster" alt="">
+                    <a :href="movie.trailer_hd" target="_blank">
+                        <div class="play-btn">
+                                <img class="" src="../assets/play_btn.svg" alt="" srcset="">
+                        </div>
+                        <img class="poster-img" :src="movie.url_poster" alt="">
+                    </a>
                 </div>
                 <div class="description">
                     <span v-if="movie.is_premiere" class="premiere">
@@ -62,28 +67,71 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-    width: 1060px;
-    margin: auto;
-    margin-top: 50px;
+main {
+    @media (max-width: 1200px) {
+        background: #FFFFFF;
+        margin-top: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1060px;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .movie-block {
+        display: flex;
+        border-bottom: 1px solid #E2E2E2;
+        padding: 30px;
+    }
 }
 
 .movie-block {
     display: flex;
+    flex-direction: column;
     border-bottom: 1px solid #E2E2E2;
-    padding: 30px;
+    padding: 16px;
+    @media (min-width: 576px) {
+        padding: 30px;
+        // flex-direction: row;
+    }
+    @media (min-width: 992px) {
+        flex-direction: row;
+    }
 }
 
 .poster {
     margin-right: 40px;
     display: flex;
     align-items: center;
-    img {
-        width: 160px;
-        height: 217px;
-        box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.14);
-        border-radius: 8px;
+    position: relative;
+    @media (max-width: 576px) {
+        width: 100%;
     }
+
+    a {
+        position: relative;
+        
+        .play-btn {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .poster-img {
+            width: 160px;
+            height: 217px;
+            box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.14);
+            border-radius: 8px;
+        }
+    }
+
+    
     
 }
 
@@ -91,8 +139,12 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 350px;
-    // width: 420px;
+    
+
+    @media (min-width: 576px) {
+        max-width: 350px;
+    }
+
     p {
         padding: 10px 0;
     }
@@ -107,6 +159,10 @@ export default {
 
         img {
             margin-right: 5px;
+        }
+
+        @media (max-width: 992px) {
+            margin-top: 22px;
         }
     }
 
@@ -125,6 +181,7 @@ export default {
         font-size: 14px;
         line-height: 20px;
         color: #979797;
+        flex-wrap: wrap;
     }
 
     .genre {
@@ -135,24 +192,31 @@ export default {
 }
 
 .wrapper-times {
-    flex: 1;
     display: flex;
-    justify-content: flex-end;
+    @media (min-width: 992px) {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 
 .times {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 304px;
     height: min-content;
+    width: 304px;
     
     .time {
         display: flex;
         flex-direction: column;
-        margin-right: 16px;
+        margin-left: 16px;
         margin-top: 16px;
         height: 60px;
+
+        &:nth-child(4n + 1), &:nth-child(1) {
+            margin-left: 0;
+        }
 
         button {
             width: 60px;

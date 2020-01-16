@@ -1,5 +1,7 @@
 <template>
-    <div class="ball"></div>
+    <div class="ball-wrapper">
+        <div class="ball"></div>
+    </div>
 </template>
 
 <script>
@@ -9,21 +11,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.ball-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
 .ball {
     border: 5px solid ;
     border-color: #FAB200;
-    opacity:.9;
+    opacity: .9;
     border-top: 5px solid rgba(0,0,0,0);
-    border-left:5px solid rgba(0,0,0,0);
-    border-radius:50px;
-    width:50px;
-    height:50px;
-    margin:0 auto;
-    -moz-animation:spin .9s infinite linear;
-    -webkit-animation:spin .9s infinite linear;
-    position: absolute;
-    left: 50%;
-    top: 50%;
+    border-left: 5px solid rgba(0,0,0,0);
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    -moz-animation: spin .9s infinite linear;
+    -webkit-animation: spin .9s infinite linear;
 }
 
 @-moz-keyframes spin {
