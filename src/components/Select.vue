@@ -149,6 +149,10 @@ export default {
   cursor: pointer;
   user-select: none;
   margin: 16px 0px 0px 20px;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .item:hover{
