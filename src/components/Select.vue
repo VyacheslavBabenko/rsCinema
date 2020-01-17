@@ -115,6 +115,10 @@ export default {
   cursor: pointer;
   user-select: none;
 
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
   @media (max-width: 1200px) {
     padding-left: 0px;
     width: 100%;
